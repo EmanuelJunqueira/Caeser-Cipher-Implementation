@@ -1,16 +1,17 @@
-import string
-import random
+
+LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 def decrypt(message, key):
-    decrypted_message = []
+    decrypted_message = [] 
     for char in message:
-        if char.isalpha():
-            shift = key % 26
-            if char.islower():
-                decrypted_char = chr((ord(char) - ord('a') - shift) % 26 + ord('a'))
-            else:
-                decrypted_char = chr((ord(char) - ord('A') - shift) % 26 + ord('A'))
+        if char.isalpha(): 
+
+            posicao_original = LETRAS.find(char.upper())
+            nova_posicao = (posicao_original - key) % 26 # a diferenca aqui é que substraimos
+
+            decrypted_char = LETRAS[nova_posicao]
             decrypted_message.append(decrypted_char)
+
         else:
-            decrypted_message.append(char)
+            decrypted_message.append(char) 
     return ''.join(decrypted_message)

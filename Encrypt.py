@@ -1,6 +1,4 @@
 
-import random
-
 LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 def encrypt(message, key):
