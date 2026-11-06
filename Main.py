@@ -1,21 +1,29 @@
+import random
 
+from Encrypt import encrypt
+from Decrypt import decrypt
 
 def main():
     key = None
     while True:
-        message = input("Digite a mensagem: ")
-        action = input("Escolha o método (encrypt, decrypt ou sair): ").strip().lower()
 
-        if action == 'sair':
+        message = input("Escreve a mensagem (ou 'sair' para fechar): ")
+        if message.strip().lower() == 'sair':
             print("Programa encerrado.")
             break
-        elif action == 'encrypt':
-            if key is None:
-                key = random.randint(1, 25)
+
+
+        action = input("Escolha o método (encrypt / decrypt): ").strip().lower()
+
+        if action == 'encrypt':
+            key = random.randint(1, 25)
+                
             encrypted_message = encrypt(message, key)
-            print(f"Mensagem criptografada: {encrypted_message}")
+            print(f"\nMensagem Encriptada: {encrypted_message}")
+            print(f"(A chave aleatória gerada e guardada foi: {key})")
+
         elif action == 'decrypt':
-            if key is not None:
+            if key is None:
                 decrypted_message = decrypt(message, key)
                 print(f"Mensagem descriptografada: {decrypted_message}")
             else:
