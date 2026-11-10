@@ -4,7 +4,7 @@ LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 def encrypt(message, key):
     encrypted_message = [] # isto representa uma lista vazia 
     for char in message:
-        if char.isalpha(): # o isalpha verifica se o caractere é uma letra do alfabeto
+        if char.upper() in LETRAS: #
           
             posicao_original = LETRAS.find(char.upper()) # aqui é transformado a letra original em Maiuscula
             nova_posicao = (posicao_original + key) % 26

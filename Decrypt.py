@@ -4,7 +4,9 @@ LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 def decrypt(message, key):
     decrypted_message = [] 
     for char in message:
-        if char.isalpha(): 
+        #Troquei o "if char.isalpha()" por "if char.upper() in LETRAS"
+
+        if char.upper() in LETRAS: 
 
             posicao_original = LETRAS.find(char.upper())
             nova_posicao = (posicao_original - key) % 26 # a diferenca aqui é que substraimos

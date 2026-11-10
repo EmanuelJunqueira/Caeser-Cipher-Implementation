@@ -51,9 +51,9 @@ def main():
 
             # Apresenta os resultados descobertos pelo algoritmo no ecrã
 
-            print(f"--> Chave detetada pelo algoritmo: {discovered_shift}")
-            print(f"--> Mensagem decifrada: {hacked_message}\n")
-            
+            print(f" Chave detetada pelo algoritmo: {discovered_shift}")
+            print(f" Mensagem decifrada: {hacked_message}\n")
+
         else:
             print("\nAção inválida. Escolhe 'encrypt', 'decrypt' ou 'hack'.")
 
