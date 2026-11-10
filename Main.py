@@ -2,6 +2,7 @@ import random
 
 from Encrypt import encrypt
 from Decrypt import decrypt
+from Hacking import smart_brute_force
 
 def main():
     key = None
@@ -14,7 +15,7 @@ def main():
             break
 
 
-        action = input("Escolha o método (encrypt / decrypt): ").strip().lower()
+        action = input("Escolha o método (encrypt / decrypt / hack): ").strip().lower()
 
         if action == 'encrypt':
             key = random.randint(1, 25)    
@@ -38,8 +39,23 @@ def main():
 
                 key = None
                 ultima_mensagem_cifrada = None
+
+
+        elif action == 'hack':
+            # Avisa o utilizador que o processo de ataque começou
+            print("\n[!] Iniciando Hack de Força Bruta ...")
+           
+            # A função recebe o criptograma inserido (message) e devolve a chave provável e o texto descodificado
+            discovered_shift, hacked_message = smart_brute_force(message)
+
+
+            # Apresenta os resultados descobertos pelo algoritmo no ecrã
+
+            print(f"--> Chave detetada pelo algoritmo: {discovered_shift}")
+            print(f"--> Mensagem decifrada: {hacked_message}\n")
+            
         else:
-            print("\nAção inválida. Escolhe 'encrypt' ou 'decrypt'.")
+            print("\nAção inválida. Escolhe 'encrypt', 'decrypt' ou 'hack'.")
 
 if __name__ == "__main__":
     main()
