@@ -4,7 +4,7 @@ LETRAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 def decrypt(message, key):
     decrypted_message = [] 
     for char in message:
-        #Troquei o "if char.isalpha()" por "if char.upper() in LETRAS"
+        
 
         if char.upper() in LETRAS: 
 

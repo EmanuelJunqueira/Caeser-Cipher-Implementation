@@ -7,7 +7,9 @@ def encrypt(message, key):
         if char.upper() in LETRAS: #
           
             posicao_original = LETRAS.find(char.upper()) # aqui é transformado a letra original em Maiuscula
-            nova_posicao = (posicao_original + key) % 26
+
+            # utiliza o operador módulo (%) para garantir que o índice fique dentro do intervalo de 0 a 25
+            nova_posicao = (posicao_original + key) % 26 
 
 
             encrypted_char = LETRAS[nova_posicao]
